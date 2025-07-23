@@ -3,7 +3,8 @@ from .schemas import (
     PortfolioBase, PortfolioCreate, Portfolio, PortfolioWithAssets,
     AssetBase, AssetCreate, Asset,
     NetWorthCurrent, NetWorthHistory, NetWorthHistoryResponse,
-    PriceSnapshot, ExportResponse
+    PriceSnapshot, ExportResponse,
+    NewsItem, NewsResponse
 )
 
 __all__ = [
@@ -11,5 +12,6 @@ __all__ = [
     "PortfolioBase", "PortfolioCreate", "Portfolio", "PortfolioWithAssets",
     "AssetBase", "AssetCreate", "Asset",
     "NetWorthCurrent", "NetWorthHistory", "NetWorthHistoryResponse",
-    "PriceSnapshot", "ExportResponse"
+    "PriceSnapshot", "ExportResponse",
+    "NewsItem", "NewsResponse"
 ]

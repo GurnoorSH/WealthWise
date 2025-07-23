@@ -125,3 +125,21 @@ class PriceSnapshot(BaseModel):
 class ExportResponse(BaseModel):
     message: str
     download_url: Optional[str] = None
+
+
+# News Schemas
+class NewsItem(BaseModel):
+    id: int
+    symbol: str
+    title: str
+    url: str
+    source: Optional[str] = None
+    importance: str  # "critical", "important", "routine"
+    timestamp: datetime
+    
+    class Config:
+        from_attributes = True
+
+
+class NewsResponse(BaseModel):
+    news: List[NewsItem]

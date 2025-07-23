@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 import logging
 from config import settings
-from routers import auth, portfolios, networth, export
+from routers import auth, portfolios, networth, export, news
 from scheduler.scheduler_service import scheduler_service
 
 # Configure logging
@@ -44,6 +44,7 @@ app.include_router(auth.router)
 app.include_router(portfolios.router)
 app.include_router(networth.router)
 app.include_router(export.router)
+app.include_router(news.router)
 
 
 @app.get("/")

@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, Text, DECIMAL, Boolean
+from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, Text, DECIMAL, Boolean, Float
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
@@ -74,3 +74,17 @@ class NetWorthSnapshot(Base):
     timestamp = Column(DateTime(timezone=True), server_default=func.now())
     
     user = relationship("User")
+
+
+class News(Base):
+    __tablename__ = "news"
+    
+    id = Column(Integer, primary_key=True, index=True)
+    symbol = Column(String, nullable=False, index=True)
+    title = Column(String, nullable=False)
+    url = Column(String, nullable=False)
+    source = Column(String, nullable=True)
+    importance_score = Column(Float, nullable=False, default=0.0)
+    timestamp = Column(DateTime(timezone=True), nullable=False)
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+    metadata = Column(JSONB, nullable=True)  # Additional news metadata
